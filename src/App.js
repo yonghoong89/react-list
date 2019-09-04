@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import Header from './header';
-import Content from './content';
+import Head from './layout/head'; //공통 헤더
+import Footer from './layout/footer'; //공통 푸터
+import Listpage from './page/lp'; //lp페이지
 
 class App extends Component {
 
   render() {
     return (
       <div>
-        <Header/>
-        <Content/>
+        <Head/>
+        <Listpage/>
+        <Footer/>
       </div>
     );
   }

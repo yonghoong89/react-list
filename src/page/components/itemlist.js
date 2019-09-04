@@ -1,22 +1,8 @@
 import React, { Component } from 'react';
 
-class Content_body extends Component {
+class Itemlist extends Component {
     render() {
         return (
-          <div className="region--content_body">
-              <div id="section--inner_content_body_container">
-                <Section__module />
-              </div>
-          </div>
-        );
-    }
-}
-
-
-class Section__module extends Component {
-  render() {
-      return (
-        <div className="component component--item_card type-smiledelivery element-info">
             <div className="itemcard">            
                 <div className="section--itemcard_box">                                              
                     <div className="section--itemcard">
@@ -64,10 +50,8 @@ class Section__module extends Component {
                         </span>                                                                        
                     </div>
                 </div>
-            </div>        
-        </div>
-      );
-  }
+            </div>  
+        );
+    }
 }
-
-export default Content_body;
+export default Itemlist;
