@@ -33,24 +33,28 @@ class Toggle extends React.Component {
         this.setState({ 
             solt: [true,false,false,false],
         });
+        console.log(1)
     }
 
     solt2 = () =>{
         this.setState({ 
             solt: [false,true,false,false],
         });
+        console.log(2)
     }
 
     solt3 = () =>{
         this.setState({ 
             solt: [false,true,false,false],
         });
+        console.log(3)
     }
 
     solt4 = () =>{
         this.setState({ 
             solt: [false,true,false,false],
         });
+        console.log(4)
     }
    
    
@@ -69,10 +73,9 @@ class Toggle extends React.Component {
                             </span>
                         </span>
                     </li>
-                    <li className="item"><a href="#" className="link" onClick={this.solt2}>브랜드순</a></li>
-                    <li className="item"><a href="#" className="link" onClick={this.solt3}>낮은가격순</a></li>
-                    <li className="item"><a href="#" className="link" onClick={this.solt5}>높은가격순</a></li>
-                    <li className="item"><a href="#" className="link" onClick={this.solt6}>높은구매순</a></li>
+                    <li className="item"><a href="#" className="link" onClick={this.solt2}>낮은가격순</a></li>
+                    <li className="item"><a href="#" className="link" onClick={this.solt3}>높은가격순</a></li>
+                    <li className="item"><a href="#" className="link" onClick={this.solt4}>높은구매순</a></li>
                 </ul>
             </div>
         </Fragment>
