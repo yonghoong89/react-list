@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 const Itemlist =({GoodsCode, ImageURL, BrandName, GoodsName, SalePrice, DeliveryText, DeliveryInfo, BuyCount}) =>{
-    console.log(GoodsCode)
     return(
         <div className="itemcard">            
                 <div className="section--itemcard_box">                                              
@@ -22,14 +21,16 @@ const Itemlist =({GoodsCode, ImageURL, BrandName, GoodsName, SalePrice, Delivery
                                         </span>
                                     </span>
                                     <span className="section--itemcard_info_add">
+                                        <span className="text--addinfo">{DeliveryInfo}</span>
                                         <span className="text--addinfo">{DeliveryText}</span>
-                                        <span className="text--addinfo">{DeliveryInfo}</span>                                               
                                     </span>
                                     <span className="section--itemcard_info_score">
                                         <span className="score--buycnt">
                                             <span className="text--buycnt">구매</span><span className="text--buycnt__num">{BuyCount}</span><span className="ir">건</span>
                                         </span>
-                                        <span className="score--awards"><span className="ir">만족도</span><span className="text--awards">4.8</span><span className="ir">점</span></span>                                                
+                                        <span className="score--awards">
+                                            <span className="ir">만족도</span><span className="text--awards">4.8</span><span className="ir">점</span>
+                                        </span>
                                     </span>
                                 </span>                    
                             </a>
