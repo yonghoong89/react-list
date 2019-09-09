@@ -4,25 +4,25 @@ class Toggle extends React.Component {
     constructor(props) {
     super(props);
     this.state = {
-        isToggleOn: true,
-        isToggleOn2: true,
+        isToggleOn: true, //정렬 토클
+        isToggleOn2: true, //정렬내 광고 토클
         solt: [true,false,false,false],
         isToggleOn4: true,
     };
-    //this를 사용하기 위해서 bind를 해주어야 합니다. 
-    this.handleClick = this.handleClick.bind(this);
-    this.handleClick2 = this.handleClick2.bind(this);
+    //this를 사용하기 위해서 bind를 해주어야 합니다. (arrow 함수 사용하는 경우)
+    // this.handleClick = this.handleClick.bind(this);
+    // this.handleClick2 = this.handleClick2.bind(this);
     
 }
    
-    handleClick() {
+    handleClick = () =>{
         const toggle =  (this.state.isToggleOn) ? false : true;
         this.setState({ 
             isToggleOn: toggle
         });
     }
 
-    handleClick2() {
+    handleClick2 = () =>{
         const toggle =  (this.state.isToggleOn2) ? false : true;
         this.setState({ 
             isToggleOn2: toggle
@@ -33,28 +33,24 @@ class Toggle extends React.Component {
         this.setState({ 
             solt: [true,false,false,false],
         });
-        console.log(1)
     }
 
     solt2 = () =>{
         this.setState({ 
             solt: [false,true,false,false],
         });
-        console.log(2)
     }
 
     solt3 = () =>{
         this.setState({ 
-            solt: [false,true,false,false],
+            solt: [false,false,true,false],
         });
-        console.log(3)
     }
 
     solt4 = () =>{
         this.setState({ 
-            solt: [false,true,false,false],
+            solt: [false,false,false,true],
         });
-        console.log(4)
     }
    
    
@@ -64,7 +60,7 @@ class Toggle extends React.Component {
             <button type="button" className={this.state.isToggleOn ? "link--button_sort on" : "link--button_sort"} onClick={this.handleClick}>정렬</button>
             <div className={this.state.isToggleOn ? "sort--option_box" : "sort--option_box on"}>
                 <ul className="sort--option_select">
-                    <li className="item item--active">
+                    <li className={this.state.solt[0] ? "item item--active" : "item"}>
                         <a href="#" className="link" onClick={this.solt1}>옥션랭킹순</a><button type="button" className="button--notification_advertisement" onClick={this.handleClick2}>광고포함</button>
                         <span className={this.state.isToggleOn2 ? "section--notification_advertisement" : "section--notification_advertisement on"}>
                             <span className="text--notification_advertisement">
@@ -73,9 +69,9 @@ class Toggle extends React.Component {
                             </span>
                         </span>
                     </li>
-                    <li className="item"><a href="#" className="link" onClick={this.solt2}>낮은가격순</a></li>
-                    <li className="item"><a href="#" className="link" onClick={this.solt3}>높은가격순</a></li>
-                    <li className="item"><a href="#" className="link" onClick={this.solt4}>높은구매순</a></li>
+                    <li className={this.state.solt[1] ? "item item--active" : "item"}><a href="#" className="link" onClick={this.solt2}>낮은가격순</a></li>
+                    <li className={this.state.solt[2] ? "item item--active" : "item"}><a href="#" className="link" onClick={this.solt3}>높은가격순</a></li>
+                    <li className={this.state.solt[3] ? "item item--active" : "item"}><a href="#" className="link" onClick={this.solt4}>높은구매순</a></li>
                 </ul>
             </div>
         </Fragment>
@@ -84,8 +80,9 @@ class Toggle extends React.Component {
 
   }
 
-const Category =({length}) =>{
+const Category =({length, filterToggle}) =>{
 
+        console.log(filterToggle)
     return(
         <div className="section--search_relative_information section--content_information_bar_container">
             <div className="text--search_result">
@@ -96,7 +93,7 @@ const Category =({length}) =>{
                     <Toggle />
                 </div>
             </div>
-            <button type="button" className="link--button_filter link_active">필터</button>
+            <button type="button" className="link--button_filter link_active" onClick={filterToggle}>필터</button>
         </div>
     )
 }

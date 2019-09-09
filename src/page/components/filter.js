@@ -1,25 +1,9 @@
 import React, { Component } from 'react';
 
-class Fillter extends React.Component {
-    constructor(props) {
-    super(props);
-    this.state = {
-        isToggleOn: false
-    };
-    //this를 사용하기 위해서 bind를 해주어야 합니다. 
-    
-}
-   
-    // handleClick() {
-    //     const toggle =  (this.state.isToggleOn) ? false : true;
-    //     this.setState({ 
-    //         isToggleOn: toggle
-    //     });
-    // }
-   
-    render() {
-      return (
-        <div id="region--content_filter" className={this.state.isToggleOn ? "js-filter--fixed" : ""}>
+const Filter =({filterToggle}) =>{
+    console.log(filterToggle)
+    return(
+        <div id="region--content_filter" className={filterToggle ? "test" : "js-filter--fixed"}>
             <div className="section--module_wrap">
             <div className="section--content_filter_container">
 <div className="content--filter_top">
@@ -300,11 +284,12 @@ class Fillter extends React.Component {
                     
         </div>
     </div>
-      );
-    }
 
-  }
+    )
+}
+
+  
 
 
 
-export default Fillter;
+export default Filter;

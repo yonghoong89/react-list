@@ -3,7 +3,7 @@ import Header from './components/header';
 import Keyword from './components/keyword';
 import Category from './components/category';
 import Itemlist from './components/itemlist';
-import Fillter from './components/fillter';
+import Filter from './components/filter';
 import axios from 'axios';
 
 class Listpage extends Component {
@@ -13,8 +13,12 @@ class Listpage extends Component {
     this.state = {
       Itemcard: [],
       keyword:[],
-      BrandFinder: []
+      BrandFinder: [],
+      filterToggle:true
     };
+
+    this.filterToggle = this.filterToggle.bind(this);
+
   }
 
 
@@ -59,8 +63,19 @@ class Listpage extends Component {
     return keywords
   }
 
+  filterToggle() {
+    const toggle =  (this.state.filterToggle) ? false : true;
+    this.setState({ 
+        filterToggle: toggle
+    });
+  }
+
     render() {
-      console.log(this.state) //아이템카드 데이터 정렬 console
+      
+      console.log(this.state.Itemcard) //아이템카드 데이터 정렬1
+      console.log(this.state.brandfinder) //아이템카드 데이터 정렬2
+      console.log(this.state.filterToggle) //하위에서 올라온 상위컴포넌트 변경확인
+
         return (
           <Fragment>
             <div id="content" className="state--content_view_type__list">
@@ -72,7 +87,7 @@ class Listpage extends Component {
                       </ul>
                   </div>
               </div>
-                <Category length={this.state.Itemcard.length} />
+                <Category length={this.state.Itemcard.length} filterToggle={this.filterToggle} />
                 <div className="region--content_body">
                   <div id="section--inner_content_body_container">
                     <div className="component component--item_card type-smiledelivery element-info">
@@ -80,7 +95,7 @@ class Listpage extends Component {
                     </div>
                   </div>
                 </div>
-                {/* <Fillter /> */}
+                <Filter filterToggle={this.state.filterToggle} />
               </div>
             </div>
           </Fragment>
