@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
-const Filter =({filterToggle}) =>{
-    console.log(filterToggle)
+const Filter =({filterToggle,filterOnChange, viewtypeState, viewtypeChange}) =>{
+
     return(
-        <div id="region--content_filter" className={filterToggle ? "test" : "js-filter--fixed"}>
+        <div id="region--content_filter" className={filterToggle ? "" : "js-filter--fixed"}>
+            <div className="section--module_wrap" module-design-id="2027">
+    </div>  
             <div className="section--module_wrap">
             <div className="section--content_filter_container">
 <div className="content--filter_top">
@@ -14,8 +16,8 @@ const Filter =({filterToggle}) =>{
 <div className="section--content_scroll_content">
     <div className="section--select_view_type">
 <h4 className="text--text--filter_title">상품보기 방식</h4>
-<button className="button--type_gallery_view"><span className="ir">갤러리뷰 보기</span></button>
-<button className="button--type_list_view on"><span className="ir">리스트뷰 보기</span></button>
+<button className={viewtypeState[0] ? "button--type_gallery_view on" : "button--type_gallery_view"} onClick={viewtypeChange}><span className="ir">갤러리뷰 보기</span></button>
+<button className={viewtypeState[1] ? "button--type_list_view on" : "button--type_list_view"} onClick={viewtypeChange}><span className="ir">리스트뷰 보기</span></button>
 </div>    
     <div className="section--module_wrap">
         <div className="component--filter">
@@ -274,11 +276,11 @@ const Filter =({filterToggle}) =>{
     <div className="section--module_wrap"> 
         <button type="button" className="button__filter_reset"><span className="ir">필터 초기화</span></button>
     </div>
-    <div className="section--module_wrap" module-design-id="2027">
-        <div className="section--filter_close">
-            <button type="button" className="button--close_filter_container"><span className="button--close_text">닫기</span></button>
+
+    <div className="section--filter_close">
+            <button type="button" className="button--close_filter_container"><span className="button--close_text" onClick={filterOnChange}>닫기</span></button>
         </div>
-    </div>  
+
 </div>    
 </div>
                     
