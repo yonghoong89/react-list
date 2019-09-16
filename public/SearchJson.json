@@ -54,7 +54,7 @@
 			"Seller": {
 				"SellCustNo": "144613029"
 			},
-			"IsFavoriteSeller": false,
+			"IsFavoriteSeller": true,
 			"IsPurchasedSeller": false,
 			"IsTpl": "NL",
 			"SubdivYN": false,

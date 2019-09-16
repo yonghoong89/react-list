@@ -33,7 +33,6 @@ class Listpage extends Component {
   renderItem = () =>{
     const number = this.state.Itemcard.length;
     const items = this.state.Itemcard.slice(0,number).map((Itemcard,index)=>{
-
       return <Itemlist GoodsCode={Itemcard.GoodsCode}
       ImageURL={Itemcard.ImageURL}
       BrandName={Itemcard.BrandName}
@@ -43,11 +42,36 @@ class Listpage extends Component {
       DeliveryInfo={Itemcard.Delivery.DeliveryInfo}
       BuyCount={Itemcard.BuyCount}
       key={index}
+      keyValue={index}
+      addCart={this.addCart}
+      addFavorite={this.addFavorite}
+      IsFavoriteSeller ={Itemcard.IsFavoriteSeller}
       />
     });
   
     return items
   }
+  addFavorite = (keyValue) =>{
+    console.log(this.state.Itemcard[keyValue].IsFavoriteSeller)
+    
+    if(this.state.Itemcard[keyValue].IsFavoriteSeller){
+      alert('관심상품에 제거되었습니다.')
+      this.setState({ 
+        //Itemcard[0].IsFavoriteSeller: false
+      });
+    }
+    // else{
+    //   alert('관심상품에 추가되었습니다.')
+    //   this.setState({ 
+    //     Itemcard[keyValue].IsFavoriteSeller: true
+    //   });
+    // }
+  }
+
+  addCart = () =>{
+    alert('장바구니에 추가되었습니다')
+  }
+
 
   renderKeyword = () =>{
     const number = this.state.keyword.length;
@@ -79,6 +103,28 @@ class Listpage extends Component {
     });
   }
 
+  //정렬 가격순(비싼)
+  _soltPriceHigh = () =>{
+    const soltingFielf = "SellPrice";
+    const solting = this.state.Itemcard.sort(function(a, b){
+      return b[soltingFielf] - a[soltingFielf]
+    });
+    this.setState({ 
+      Itemcard : solting
+    });
+  }
+
+  //구매순
+  _soltBuyCount = () =>{
+    const soltingFielf = "BuyCount";
+    const solting = this.state.Itemcard.sort(function(a, b){
+      return b[soltingFielf] - a[soltingFielf]
+    });
+    this.setState({ 
+      Itemcard : solting
+    });
+  }
+
   filterToggle = () =>{
     const toggle =  (this.state.filterToggle) ? false : true;
     this.setState({ 
@@ -89,7 +135,7 @@ class Listpage extends Component {
 
     render() {
       
-      console.log(this.state.Itemcard) //아이템카드 데이터 정렬1
+      console.log(this.state.Itemcard[0].IsFavoriteSeller) //아이템카드 데이터 정렬1
       console.log(this.state.brandfinder) //아이템카드 데이터 정렬2
       console.log(this.state.filterToggle) //하위에서 올라온 상위컴포넌트 변경확인
       console.log(this.state.viewtype) //하위에서 올라온 상위컴포넌트 변경확인
@@ -97,7 +143,7 @@ class Listpage extends Component {
         return (
           <Fragment>
             <div id="content" className={this.state.viewtype[0] ? "state--content_view_type__gallery" : "state--content_view_type__list"}>
-              <div className="section--content_body_container" onClick={this._soltPriceLow}>
+              <div className="section--content_body_container">
                 <div className="section--search_relative_information section--relative_keywords_container">
                   <div className="section--relative_keywords">
                       <ul className="list--relative_keywords">

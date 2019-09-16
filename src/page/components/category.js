@@ -1,20 +1,13 @@
 import React, { Component, Fragment } from 'react';
 
-class Toggle extends React.Component {
-    constructor(props) {
-    super(props);
-    this.state = {
+class Toggle extends Component {
+    state = {
         isToggleOn: true, //정렬 토클
         isToggleOn2: true, //정렬내 광고 토클
         solt: [true,false,false,false],
         isToggleOn4: true,
     };
-    //this를 사용하기 위해서 bind를 해주어야 합니다. (arrow 함수 사용하는 경우)
-    // this.handleClick = this.handleClick.bind(this);
-    // this.handleClick2 = this.handleClick2.bind(this);
-    
-}
-   
+
     handleClick = () =>{
         const toggle =  (this.state.isToggleOn) ? false : true;
         this.setState({ 
@@ -82,7 +75,6 @@ class Toggle extends React.Component {
 
 const Category =({length, filterToggle}) =>{
 
-        console.log(filterToggle)
     return(
         <div className="section--search_relative_information section--content_information_bar_container">
             <div className="text--search_result">

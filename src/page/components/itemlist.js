@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 
-const Itemlist =({GoodsCode, ImageURL, BrandName, GoodsName, SalePrice, DeliveryText, DeliveryInfo, BuyCount}) =>{
+
+
+const Itemlist =({GoodsCode, ImageURL, BrandName, GoodsName, SalePrice, DeliveryText, DeliveryInfo, BuyCount, addCart, IsFavoriteSeller, key, keyValue, addFavorite}) =>{
+    console.log(IsFavoriteSeller)
     return(
+
         <div className="component component--item_card type--general">
-            <div className="itemcard">            
-                <div className="section--itemcard_box">                                              
+            <div className="itemcard">
+                <div className="section--itemcard_box">
                         <div className="section--itemcard">
                             <div className="itemcard--inner">
                                 <a href={GoodsCode} className="link--itemcard">
@@ -33,10 +37,10 @@ const Itemlist =({GoodsCode, ImageURL, BrandName, GoodsName, SalePrice, Delivery
                                                 <span className="ir">만족도</span><span className="text--awards">4.8</span><span className="ir">점</span>
                                             </span>
                                         </span>
-                                    </span>                    
+                                    </span>
                                 </a>
-                                <button className="button--favorite"><span className="icon--favorite"><span className="ir">관심상품 등록하기</span></span></button>                                                                                                                                                                                                            
-                                <button className="button--cart element-info-cart"><span className="icon--cart"><span className="ir">장바구니담기</span></span></button>                
+                                <button id={keyValue} className={IsFavoriteSeller ? "button--favorite on" : "button--favorite"} onClick={() => addFavorite(keyValue)}><span className="icon--favorite"><span className="ir">관심상품 등록하기</span></span></button>                                                                                                                                                                                                            
+                                <button className="button--cart element-info-cart" onClick={addCart}><span className="icon--cart"><span className="ir">장바구니담기</span></span></button>
                             </div>
                             <span className="section--related_item">
                                 <span className="related--item_info">
