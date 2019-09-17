@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <Fragment>
         <Header/>
-        <Listpage/>
+          <Listpage/>
         <Footer/>
       </Fragment>
     );

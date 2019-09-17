@@ -56,9 +56,9 @@ const Filter =({filterToggle,filterOnChange, viewtypeState, viewtypeChange}) =>{
 <div className="filter_content">
 <div className="section--checkbox_form">
     <input type="checkbox" name="smiledelivery" id="check--smiledelivery" className="custom_form--checkbox" />
-    <label for="check--smiledelivery" className="custom_form--label"><span className="ico">스마일배송</span></label>
+    <label className="custom_form--label"><span className="ico">스마일배송</span></label>
     <input type="checkbox" name="smiledelivery" id="check--delivery_free" className="custom_form--checkbox" />
-    <label for="check--delivery_free" className="custom_form--label">무료배송</label>
+    <label className="custom_form--label">무료배송</label>
 </div>
 </div>
 </div>
@@ -72,13 +72,13 @@ const Filter =({filterToggle,filterOnChange, viewtypeState, viewtypeChange}) =>{
 <li className="list--item">
     <a href="#" className="link--category">
         <input type="checkbox" name="checkbox-check-01" id="checkbox-check-01" className="custom_form--checkbox" />
-        <label for="checkbox-check-01" className="custom_form--label">PC 1depth 123 dsadsadsad fsafsad</label>
+        <label className="custom_form--label">PC 1depth 123 dsadsadsad fsafsad</label>
     </a>
 </li>
 <li className="list--item">
     <a href="#" className="link--category">
         <input type="checkbox" name="checkbox-check-02" id="checkbox-check-02" className="custom_form--checkbox" />
-        <label for="checkbox-check-02" className="custom_form--label">PC  123 dsadsadsad fsafsad</label>
+        <label className="custom_form--label">PC  123 dsadsadsad fsafsad</label>
     </a>
 </li>                            
 <li className="list--item button">
@@ -102,7 +102,7 @@ const Filter =({filterToggle,filterOnChange, viewtypeState, viewtypeChange}) =>{
     <div className="link--category">
         <div className="name--store--flexbox">
             <input type="checkbox" name="store-check-01" id="store-check-01" className="custom_form--checkbox" />
-            <label for="store-check-01" className="custom_form--label"><span className="includ_coupon ellipsis">갤러리아 백화점</span></label><button className="button--store_dc_coupon">30% 쿠폰<span className="ico"></span></button>
+            <label className="custom_form--label"><span className="includ_coupon ellipsis">갤러리아 백화점</span></label><button className="button--store_dc_coupon">30% 쿠폰<span className="ico"></span></button>
         </div>
     </div>
 </li>                        
@@ -110,7 +110,7 @@ const Filter =({filterToggle,filterOnChange, viewtypeState, viewtypeChange}) =>{
     <div className="link--category">
         <div className="name--store--flexbox">
             <input type="checkbox" name="store-check-02" id="store-check-02" className="custom_form--checkbox" />
-            <label for="store-check-02" className="custom_form--label"><span className="ellipsis">현대백화점 현대백화점</span></label><button className="button--store_dc_coupon">7% 쿠폰<span className="ico"></span></button>
+            <label className="custom_form--label"><span className="ellipsis">현대백화점 현대백화점</span></label><button className="button--store_dc_coupon">7% 쿠폰<span className="ico"></span></button>
         </div>
     </div>
 </li>
@@ -118,7 +118,7 @@ const Filter =({filterToggle,filterOnChange, viewtypeState, viewtypeChange}) =>{
     <div className="link--category">
         <div className="name--store--flexbox">
             <input type="checkbox" name="store-check-03" id="store-check-03" className="custom_form--checkbox" />
-            <label for="store-check-03" className="custom_form--label nocoupon"><span className="ellipsis">현대백화점 현대백화점 현대백화점</span></label>
+            <label className="custom_form--label nocoupon"><span className="ellipsis">현대백화점 현대백화점 현대백화점</span></label>
         </div>
     </div>
 </li>
@@ -142,13 +142,13 @@ const Filter =({filterToggle,filterOnChange, viewtypeState, viewtypeChange}) =>{
 <li className="list--item">
     <a href="#" className="link--category">
         <input type="checkbox" name="color-check-01" id="color-check-01" className="custom_form--checkbox" />
-        <label for="color-check-01" className="custom_form--label"><span className="color--chip"></span>초록색</label>
+        <label className="custom_form--label"><span className="color--chip"></span>초록색</label>
     </a>
 </li>                        
 <li className="list--item">
     <a href="#" className="link--category">
         <input type="checkbox" name="color-check-02" id="color-check-02" className="custom_form--checkbox" />
-        <label for="color-check-02" className="custom_form--label"><span className="color--chip"></span>흰색</label>
+        <label className="custom_form--label"><span className="color--chip"></span>흰색</label>
     </a>
 </li>                                                    
 <li className="list--item button">
@@ -171,7 +171,7 @@ const Filter =({filterToggle,filterOnChange, viewtypeState, viewtypeChange}) =>{
 <li className="list--item">
     <a href="#" className="link--category">
         <input type="checkbox" name="option-check-01" id="option-check-01" className="custom_form--checkbox" />
-        <label for="option-check-01" className="custom_form--label">1~4인용</label>
+        <label className="custom_form--label">1~4인용</label>
     </a>
 </li>                        
 <li className="list--item button">
@@ -242,14 +242,14 @@ const Filter =({filterToggle,filterOnChange, viewtypeState, viewtypeChange}) =>{
 </div>
 <div className="section--price_form">
     <span className="price--input_box" />
-        <label for="min_price">최소금액</label>
-        <input type="number" id="min_price" placeholder="최소금액" name="minPrice" value="최소금액" />
+        <label>최소금액</label>
+        <input type="number" id="min_price" placeholder="최소금액" name="minPrice"/>
         <span className="text--money">원</span>
     
     <span className="text--hyphen">~</span>
     <span className="price--input_box" />
-        <label for="max_price">최대금액</label>
-        <input type="number" id="max_price" placeholder="최대금액" name="maxPrice" value="최대금액" />
+        <label>최대금액</label>
+        <input type="number" id="max_price" placeholder="최대금액" name="maxPrice"/>
         <span className="text--money">원</span>
     
     <button type="button" className="button--filter_price "><span className="ir">적용하기</span></button>
@@ -272,9 +272,6 @@ const Filter =({filterToggle,filterOnChange, viewtypeState, viewtypeChange}) =>{
 </div>
 </div>
 </div>            
-    </div>
-    <div className="section--module_wrap"> 
-        <button type="button" className="button__filter_reset"><span className="ir">필터 초기화</span></button>
     </div>
 
     <div className="section--filter_close">
