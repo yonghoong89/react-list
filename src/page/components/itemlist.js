@@ -40,7 +40,7 @@ const Itemlist =({GoodsCode, ImageURL, BrandName, GoodsName, SalePrice, Delivery
                                     </span>
                                 </a>
                                 <button className={IsFavoriteSeller ? "button--favorite on" : "button--favorite"} onClick={() => addFavorite(keyValue)}><span className="icon--favorite"><span className="ir">관심상품 등록하기</span></span></button>                                                                                                                                                                                                            
-                                <button className="button--cart element-info-cart" onClick={addCart}><span className="icon--cart"><span className="ir">장바구니담기</span></span></button>
+                                <button className="button--cart element-info-cart" onClick={() => addCart(keyValue)}><span className="icon--cart"><span className="ir">장바구니담기</span></span></button>
                             </div>
                             <span className="section--related_item">
                                 <span className="related--item_info">

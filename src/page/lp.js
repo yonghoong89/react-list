@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import Header from './components/header';
 import Keyword from './components/keyword';
 import Category from './components/category';
 import Itemlist from './components/itemlist';
@@ -16,8 +15,7 @@ class Listpage extends Component {
     viewtype: [false,true],
     filterToggle:true,
     optionLayer:false,
-    adLayer:false,
-    test:1
+    adLayer:false
   };
 
   componentDidMount(){
@@ -32,9 +30,10 @@ class Listpage extends Component {
       .catch((err)=> {})
   }
 
-  renderItem = () =>{
+  renderItem = (addCart) =>{
     const number = this.state.Itemcard.length;
-    const items = this.state.Itemcard.slice(0,number).map((Itemcard,index)=> <Itemlist GoodsCode={Itemcard.GoodsCode}
+    const items = this.state.Itemcard.slice(0,number).map((Itemcard,index)=> <Itemlist ranking={Itemcard.ranking}
+      GoodsCode={Itemcard.GoodsCode}
       ImageURL={Itemcard.ImageURL}
       BrandName={Itemcard.BrandName}
       GoodsName={Itemcard.GoodsName}
@@ -44,7 +43,7 @@ class Listpage extends Component {
       BuyCount={Itemcard.BuyCount}
       key={index}
       keyValue={index}
-      addCart={this.addCart}
+      addCart={addCart}
       addFavorite={this.addFavorite}
       IsFavoriteSeller ={Itemcard.IsFavoriteSeller}
       />
@@ -52,43 +51,16 @@ class Listpage extends Component {
   
     return items
   }
-
-  //정렬 가격순(저렴)
-  _sortPriceLow = () =>{
-    const sortingFielf = "SellPrice";
-    const sorting = this.state.Itemcard.sort(function(a, b){
-      return a[sortingFielf] - b[sortingFielf]
-    });
-    this.setState({ 
-      Itemcard : sorting
-    });
-  }
-  //구매순
-  _soltBuyCount = () =>{
-    const soltingFielf = "BuyCount";
-    const solting = this.state.Itemcard.sort(function(a, b){
-      return b[soltingFielf] - a[soltingFielf]
-    });
-    this.setState({ 
-      Itemcard : solting
-    });
-  }
-
   addFavorite = (keyValue) =>{
     console.log(this.state.Itemcard[keyValue].IsFavoriteSeller)
     
     if(this.state.Itemcard[keyValue].IsFavoriteSeller){
       alert('관심상품에 제거되었습니다.')
-      // this.setState({ 
-      //   IsFavoriteSeller : false
-      // });
+      // this.setState({
+      // })
     }else{
       alert('관심상품에 추가되었습니다.')
     }
-  }
-
-  addCart = () =>{
-    alert('장바구니에 추가되었습니다')
   }
 
   renderKeyword = () =>{
@@ -130,10 +102,12 @@ class Listpage extends Component {
       adLayer: toggle
     });
   }
+
   sortingChange1 = () =>{
     this.setState({ 
       renderList: [true,false,false]
     });
+    this._sortRanking();
   }
   sortingChange2 = () =>{
     this.setState({ 
@@ -145,20 +119,44 @@ class Listpage extends Component {
     this.setState({ 
       renderList: [false,false,true]
     });
-    this._soltBuyCount();
+    this._sortBuyCount();
   }
 
-  renderList = () =>{
-    if(this.state.renderList=="rank"){
-      alert('test')
-    }
+  //정렬 랭킹순
+  _sortRanking = () =>{
+    const sortingFielf = "ranking";
+    const sorting = this.state.Itemcard.sort(function(a, b){
+      return a[sortingFielf] - b[sortingFielf]
+    });
+    this.setState({ 
+      Itemcard : sorting
+    });
   }
-
+  //정렬 가격순(저렴)
+  _sortPriceLow = () =>{
+    const sortingFielf = "SellPrice";
+    const sorting = this.state.Itemcard.sort(function(a, b){
+      return a[sortingFielf] - b[sortingFielf]
+    });
+    this.setState({ 
+      Itemcard : sorting
+    });
+  }
+  //구매순
+  _sortBuyCount = () =>{
+    const sortingFielf = "BuyCount";
+    const sorting = this.state.Itemcard.sort(function(a, b){
+      return b[sortingFielf] - a[sortingFielf]
+    });
+    this.setState({ 
+      Itemcard : sorting
+    });
+  }
     render() {
-      
+      const {addCart} = this.props
+      console.log(addCart)
       console.log(this.state.Itemcard) //아이템카드 데이터 정렬1
-      console.log(this.state.ItemcardLowPrice) //솔팅 가격낮은
-      console.log(this.state.filterToggle) //하위에서 올라온 상위컴포넌트 변경확인
+      console.log(this.state.cartList)
         return (
           <Fragment>
             <div id="content" className={this.state.viewtype[0] ? "state--content_view_type__gallery" : "state--content_view_type__list"}>
@@ -174,7 +172,7 @@ class Listpage extends Component {
                 <div id="region--content_body" className="region--content_body">
                   <div id="section--inner_content_body_container">
                     <div className="section--module_wrap">
-                      {this.renderItem()}
+                      {this.renderItem(addCart)}
                     </div>
                   </div>
                 </div>

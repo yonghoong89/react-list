@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 class Header extends Component {
-    render() {
+    
+      render() {
+        const {cartNumber} = this.props;
+        
         return (
           <header id="header">
             <div className="bx_hd_blank"></div>
@@ -18,7 +22,7 @@ class Header extends Component {
                 <button type="submit" className="btn_sch_submit sp_hd">검색</button>
                 <a href="#" className="btn_sch_cancel sp_hd search-box_button--cancel">취소</a>
               </div>
-              <a href="#" className="btn_cart sp_hd">장바구니<em className="cart_num">99</em></a>
+              <Link to="/cart"><a href="#" className="btn_cart sp_hd">장바구니<em className="cart_num">{cartNumber}</em></a></Link>
             </div>
           </header>
         );

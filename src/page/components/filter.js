@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const Filter =({filterToggle,filterOnChange, viewtypeState, viewtypeChange}) =>{
+const Filter =({filterToggle, filterOnChange, viewtypeState, viewtypeChange}) =>{
 
     return(
         <div id="region--content_filter" className={filterToggle ? "" : "js-filter--fixed"}>
@@ -55,8 +55,6 @@ const Filter =({filterToggle,filterOnChange, viewtypeState, viewtypeChange}) =>{
         <div className="component component--filter type-simple name--select_delivery"> 
 <div className="filter_content">
 <div className="section--checkbox_form">
-    <input type="checkbox" name="smiledelivery" id="check--smiledelivery" className="custom_form--checkbox" />
-    <label className="custom_form--label"><span className="ico">스마일배송</span></label>
     <input type="checkbox" name="smiledelivery" id="check--delivery_free" className="custom_form--checkbox" />
     <label className="custom_form--label">무료배송</label>
 </div>
@@ -134,57 +132,6 @@ const Filter =({filterToggle,filterOnChange, viewtypeState, viewtypeChange}) =>{
     </div>            
 
     <div className="section--module_wrap"> 
-        <div className="component component--filter type-toggle name--option_color " id="section--option"> 
-<div className="filter_content">
-    <button className="button--filter_toggle"><span className="filter--toggle-title">색상</span><span className="filter--toggle-stitle">초록색, 금색, 주황색</span></button>                
-    <div className="section--category_group">
-        <ul className="list--category">
-<li className="list--item">
-    <a href="#" className="link--category">
-        <input type="checkbox" name="color-check-01" id="color-check-01" className="custom_form--checkbox" />
-        <label className="custom_form--label"><span className="color--chip"></span>초록색</label>
-    </a>
-</li>                        
-<li className="list--item">
-    <a href="#" className="link--category">
-        <input type="checkbox" name="color-check-02" id="color-check-02" className="custom_form--checkbox" />
-        <label className="custom_form--label"><span className="color--chip"></span>흰색</label>
-    </a>
-</li>                                                    
-<li className="list--item button">
-    <button className="button--show_more_filter_as_each_item">더보기</button>
-</li>
-</ul>                     
-    </div>
-</div>                
-</div>
-
-
-    </div>    
-
-    <div className="section--module_wrap"> 
-        <div className="component component--filter type-toggle name--option " id="section--option"> 
-<div className="filter_content">
-    <button className="button--filter_toggle"><span className="filter--toggle-title">용량</span><span className="filter--toggle-stitle">1~4 인용</span></button>                
-    <div className="section--category_group">
-        <ul className="list--category">
-<li className="list--item">
-    <a href="#" className="link--category">
-        <input type="checkbox" name="option-check-01" id="option-check-01" className="custom_form--checkbox" />
-        <label className="custom_form--label">1~4인용</label>
-    </a>
-</li>                        
-<li className="list--item button">
-    <button className="button--show_more_filter_as_each_item">더보기</button>
-</li>
-</ul>                     
-    </div>
-</div>                
-</div>
-
-
-    </div>        
-    <div className="section--module_wrap"> 
         <div className="component component--filter type-toggle name--price " id="section--price"> 
 <div className="filter_content">
     <button className="button--filter_toggle"><span className="filter--toggle-title">가격대 (UI 확인용)</span><span className="filter--toggle-stitle"></span></button>                
@@ -225,54 +172,6 @@ const Filter =({filterToggle,filterOnChange, viewtypeState, viewtypeChange}) =>{
 
 
     </div>                        
-    <div className="section--module_wrap"> 
-        <div className="component component--filter type-toggle name--price " id="section--price"> 
-<div className="filter_content">
-    <button className="button--filter_toggle"><span className="filter--toggle-title">가격대 (개발용)</span><span className="filter--toggle-stitle"></span></button>                
-    <div className="section--category_group">
-        
-<div className="section--price">
-
-<div className="section--price_graph">
-    <button type="button" className="slider--range_circle mini"><span className="ir">최소금액 설정바</span></button>
-    <button type="button" className="slider--range_circle max"><span className="ir">최대금액 설정바</span></button>
-    <div className="price--slider case_min-max">                
-        <div className="slider--range_track"></div>
-    </div>
-</div>
-<div className="section--price_form">
-    <span className="price--input_box" />
-        <label>최소금액</label>
-        <input type="number" id="min_price" placeholder="최소금액" name="minPrice"/>
-        <span className="text--money">원</span>
-    
-    <span className="text--hyphen">~</span>
-    <span className="price--input_box" />
-        <label>최대금액</label>
-        <input type="number" id="max_price" placeholder="최대금액" name="maxPrice"/>
-        <span className="text--money">원</span>
-    
-    <button type="button" className="button--filter_price "><span className="ir">적용하기</span></button>
-</div>
-
-</div>                     
-    </div>
-</div>                
-</div>
-
-
-    </div>                
-
-    <div className="section--module_wrap"> 
-        <div className="component component--filter type-static name--search"> 
-<div className="filter_content">
-<div className="section--search_form">
-    <input type="text" title="결과내 재검색어 입력폼" placeholder="결과내 재검색" />
-    <button className="button--search_result"><span className="ir">검색</span></button>
-</div>
-</div>
-</div>            
-    </div>
 
     <div className="section--filter_close">
             <button type="button" className="button--close_filter_container"><span className="button--close_text" onClick={filterOnChange}>닫기</span></button>
@@ -286,9 +185,6 @@ const Filter =({filterToggle,filterOnChange, viewtypeState, viewtypeChange}) =>{
 
     )
 }
-
-  
-
 
 
 export default Filter;
