@@ -22,12 +22,18 @@ class Cart extends Component {
   }
 
   renderItem = (Favorite) =>{
+    console.log(Favorite)
+    const itemsLength = this.state.Itemcard.length;
 
-    const items = this.state.Itemcard.slice(0,10).map((Itemcard,index)=>
-      <li ranking={Itemcard.ranking} key={index}>{Itemcard.ranking} / {Itemcard.GoodsCode} / {Favorite}</li>
-    );
+    const items = this.state.Itemcard.slice(0,itemsLength).map(function(Itemcard, index) {
+
+      if(Itemcard.ranking = Favorite[index]){
+        return <li ranking={Itemcard.ranking} key={index}>{Itemcard.ranking} / {Itemcard.GoodsCode} / {Favorite}</li>
+      }
+
+    }.bind(this));
+    
     return items
-
   }
 
     render() {
