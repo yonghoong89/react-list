@@ -112,6 +112,13 @@ class Listpage extends Component {
     this._sortBuyCount();
   }
 
+  sortingFillter = () =>{
+    this.setState({ 
+      renderList: [false,false,true]
+    });
+    this._sortBuyCount();
+  }
+
   //정렬 랭킹순
   _sortRanking = () =>{
     const sortingFielf = "ranking";
