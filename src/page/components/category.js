@@ -29,7 +29,7 @@ const Category =({length, filterToggle,optionLayer,adLayer,optionLayerToggle,adL
                     </div>
                 </div>
             </div>
-            <button type="button" className="link--button_filter link_active" onClick={filterToggle}>필터</button>
+            <button type="button" className="link--button_filter" onClick={filterToggle}>필터</button>
         </div>
     )
 }

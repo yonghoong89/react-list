@@ -5,30 +5,36 @@ class Cart extends Component {
 
   state = {
     Itemcard:[],
-    cartList: [],
+    FavoriteIndex: [],
   };
 
-  componentDidMount(cartList){
-    console.log(cartList)
+  componentDidMount(){
     axios.get('./SearchJson.json')
       .then(({ data })=> {
-        //console.log(data)
         this.setState({ 
-          Itemcard: data.Item
+          Itemcard: data.Item,
+          keyword: data.Category
         });
       })
-      .catch((err)=> {})
+      .catch((err)=> {
+        alert('error')
+      })
   }
-  renderItem = (cartList) =>{
 
-    const items = this.state.Itemcard.slice(0,10).map((Itemcard,index)=><li ranking={Itemcard.ranking} key={index}>{Itemcard.ranking} / {Itemcard.GoodsCode} / {cartList}</li>);
-  
+  renderItem = (Favorite) =>{
+
+    const items = this.state.Itemcard.slice(0,10).map((Itemcard,index)=>
+      <li ranking={Itemcard.ranking} key={index}>{Itemcard.ranking} / {Itemcard.GoodsCode} / {Favorite}</li>
+    );
     return items
+
   }
+
     render() {
-      const {cartList} = this.props
+      const {Favorite} = this.props
+
         return (
-            <p>{this.renderItem(cartList)}</p>
+            <p>{this.renderItem(Favorite)}</p>
         );
     }
 }

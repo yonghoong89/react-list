@@ -8,14 +8,14 @@ import axios from 'axios';
 class Listpage extends Component {
 
   state = {
-    renderList: [true,false,false],
-    Itemcard: [],
-    ItemcardLowPrice: [],
-    keyword:[],
-    viewtype: [false,true],
-    filterToggle:true,
-    optionLayer:false,
-    adLayer:false
+    //카테고리
+    keyword:[],//키워드 리스트
+    //필터레이어
+    viewtype: [false,true],//뷰타입
+    FreeDelivery:false,
+    //리스트
+    renderList: [true,false,false],//정렬순
+    Itemcard: [],//아이템카드 리스트
   };
 
   componentDidMount(){
@@ -27,12 +27,15 @@ class Listpage extends Component {
           keyword: data.Category
         });
       })
-      .catch((err)=> {})
+      .catch((err)=> {
+        alert('error')
+      })
   }
 
-  renderItem = (addCart) =>{
+  renderItem = (addFavorite) =>{
     const number = this.state.Itemcard.length;
-    const items = this.state.Itemcard.slice(0,number).map((Itemcard,index)=> <Itemlist ranking={Itemcard.ranking}
+    let items = this.state.Itemcard.slice(0,number).map((Itemcard,index) => 
+    <Itemlist ranking={Itemcard.ranking}
       GoodsCode={Itemcard.GoodsCode}
       ImageURL={Itemcard.ImageURL}
       BrandName={Itemcard.BrandName}
@@ -42,25 +45,12 @@ class Listpage extends Component {
       DeliveryInfo={Itemcard.Delivery.DeliveryInfo}
       BuyCount={Itemcard.BuyCount}
       key={index}
-      keyValue={index}
-      addCart={addCart}
-      addFavorite={this.addFavorite}
+      addFavorite={addFavorite}
       IsFavoriteSeller ={Itemcard.IsFavoriteSeller}
       />
     );
   
     return items
-  }
-  addFavorite = (keyValue) =>{
-    console.log(this.state.Itemcard[keyValue].IsFavoriteSeller)
-    
-    if(this.state.Itemcard[keyValue].IsFavoriteSeller){
-      alert('관심상품에 제거되었습니다.')
-      // this.setState({
-      // })
-    }else{
-      alert('관심상품에 추가되었습니다.')
-    }
   }
 
   renderKeyword = () =>{
@@ -153,12 +143,10 @@ class Listpage extends Component {
     });
   }
     render() {
-      const {addCart} = this.props
-      console.log(addCart)
-      console.log(this.state.Itemcard) //아이템카드 데이터 정렬1
-      console.log(this.state.cartList)
+      const {addFavorite} = this.props
+      console.log(this.state.Itemcard) //아이템카드 데이터 정렬
+      console.log(this.state.Favorite)
         return (
-          <Fragment>
             <div id="content" className={this.state.viewtype[0] ? "state--content_view_type__gallery" : "state--content_view_type__list"}>
               <div className="section--content_body_container">
                 <div className="section--search_relative_information section--relative_keywords_container">
@@ -172,14 +160,13 @@ class Listpage extends Component {
                 <div id="region--content_body" className="region--content_body">
                   <div id="section--inner_content_body_container">
                     <div className="section--module_wrap">
-                      {this.renderItem(addCart)}
+                      {this.renderItem(addFavorite)}
                     </div>
                   </div>
                 </div>
                 <Filter filterToggle={this.state.filterToggle} filterOnChange={this.filterToggle} viewtypeState={this.state.viewtype} viewtypeChange={this._viewTypeChange} />
               </div>
             </div>
-          </Fragment>
         );
     }
 }
