@@ -35,7 +35,7 @@ class App extends Component {
     return (
       <Router>
         <Route path="/" render={ props => <Header cartNumber={this.state.Favorite.length} /> }/>
-        <Route path="/lp" render={ props => <Listpage addFavorite={this.addFavorite} /> }/>
+        <Route exact path="/" render={ props => <Listpage addFavorite={this.addFavorite} /> }/>
         <Route path="/cart" render={ props => <Cart Favorite={this.state.Favorite} /> }/>
         <Route path="/" component={Footer} />
       </Router>
