@@ -24,15 +24,11 @@ import React, { Component, Fragment } from 'react';
       <title>옥션 - {this.state.keyword} : 모바일 쇼핑은 옥션</title>
       <meta name="description" content="옥션 내 청바지 상품입니다." />
       <meta name="keywords" content="청바지" />
-      <link rel="canonical" href="http://browse.auction.co.kr/search?keyword=%ec%b2%ad%eb%b0%94%ec%a7%80" />
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="http://browse.auction.co.kr/search?keyword=%ec%b2%ad%eb%b0%94%ec%a7%80" />
       <meta property="og:title" content="옥션 - 청바지 : 모바일 쇼핑은 옥션" />
       <meta property="og:description" content="옥션 내 청바지 상품입니다." />
       <meta property="og:image" content="//pics.auction.co.kr/pc/common/sns/facebook/default.png" />
       <meta property="og:image:alt" content="옥션 청바지 상품" />
-      <script async="" src="https://tags.bkrtx.com/js/bk-coretag.js"></script>
-      <script async="" src="https://montelena.auction.co.kr/montelena.js?path=http://browse.auction.co.kr/m/search?keyword=%EC%B2%AD%EB%B0%94%EC%A7%80"></script>
       </Fragment>
     );
   }
