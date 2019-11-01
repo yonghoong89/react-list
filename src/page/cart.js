@@ -22,6 +22,7 @@ class Cart extends Component {
   }
 
   renderItem = (Favorite) =>{
+    
     console.log(Favorite)
     const itemsLength = this.state.Itemcard.length;
 

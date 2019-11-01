@@ -22,7 +22,7 @@ class Header extends Component {
                 <button type="submit" className="btn_sch_submit sp_hd">검색</button>
                 <a href="#" className="btn_sch_cancel sp_hd search-box_button--cancel">취소</a>
               </div>
-              <Link to="/cart"><a href="#" className="btn_cart sp_hd">장바구니<em className="cart_num">{cartNumber}</em></a></Link>
+              <Link to="/cart" className="btn_cart sp_hd">장바구니<em className="cart_num">{cartNumber}</em></Link>
             </div>
           </header>
         );

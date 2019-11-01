@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const Filter =({filterToggle, filterOnChange, viewtypeState, viewtypeChange}) =>{
+const Filter =({filterToggle, filterOnChange, viewtypeState, viewtypeChange, filterDeliveryControl}) =>{
     return(
 
     <div id="region--content_filter" className={filterToggle ? "js-filter--fixed" : ""}>
@@ -19,7 +19,7 @@ const Filter =({filterToggle, filterOnChange, viewtypeState, viewtypeChange}) =>
                         <div className="filter_content">
                             <div className="section--checkbox_form">
                                 <input type="checkbox" name="smiledelivery" id="check--delivery_free" className="custom_form--checkbox" />
-                                <label for="check--delivery_free" className="custom_form--label">무료배송</label>
+                                <label htmlFor="check--delivery_free" className="custom_form--label" onClick={filterDeliveryControl} >무료배송</label>
                             </div>
                         </div>
                     </div>

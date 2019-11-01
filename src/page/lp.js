@@ -16,6 +16,8 @@ class Listpage extends Component {
     //리스트
     renderList: [true,false,false],//정렬순
     Itemcard: [],//아이템카드 리스트
+    ItemcardBasic:[],
+    filterDelivery : false
   };
 
   componentDidMount(){
@@ -24,6 +26,7 @@ class Listpage extends Component {
         //console.log(data)
         this.setState({ 
           Itemcard: data.Item,
+          ItemcardBasic: data.Item,
           keyword: data.Category
         });
       })
@@ -33,6 +36,7 @@ class Listpage extends Component {
   }
 
   renderItem = (addFavorite) =>{
+
     const number = this.state.Itemcard.length;
     let items = this.state.Itemcard.slice(0,number).map((Itemcard,index) => 
     <Itemlist ranking={Itemcard.ranking}
@@ -49,7 +53,7 @@ class Listpage extends Component {
       IsFavoriteSeller ={Itemcard.IsFavoriteSeller}
       />
     );
-  
+
     return items
   }
 
@@ -114,8 +118,9 @@ class Listpage extends Component {
 
   //정렬 랭킹순
   _sortRanking = () =>{
+    const number = this.state.Itemcard.length;
     const sortingFielf = "ranking";
-    const sorting = this.state.Itemcard.sort(function(a, b){
+    const sorting = this.state.Itemcard.slice(0,number).sort(function(a, b){
       return a[sortingFielf] - b[sortingFielf]
     });
     this.setState({ 
@@ -124,8 +129,9 @@ class Listpage extends Component {
   }
   //정렬 가격순(저렴)
   _sortPriceLow = () =>{
+    const number = this.state.Itemcard.length;
     const sortingFielf = "SellPrice";
-    const sorting = this.state.Itemcard.sort(function(a, b){
+    const sorting = this.state.Itemcard.slice(0,number).sort(function(a, b){
       return a[sortingFielf] - b[sortingFielf]
     });
     this.setState({ 
@@ -134,18 +140,52 @@ class Listpage extends Component {
   }
   //구매순
   _sortBuyCount = () =>{
+    const number = this.state.Itemcard.length;
     const sortingFielf = "BuyCount";
-    const sorting = this.state.Itemcard.sort(function(a, b){
+    const sorting = this.state.Itemcard.slice(0,number).sort(function(a, b){
       return b[sortingFielf] - a[sortingFielf]
     });
     this.setState({ 
       Itemcard : sorting
     });
   }
+
+  filterDeliveryControl = () =>{
+    const toggle =  (this.state.filterDelivery) ? false : true;
+    this.setState({ 
+      filterDelivery: toggle
+    });
+
+    if(!this.state.filterDelivery){
+      this._sortfreeDelivery()
+    }else{
+      this._sortfreeDelivery2()
+    }
+  }
+
+  //무료배송
+	_sortfreeDelivery = () => {
+    const number = this.state.Itemcard.length;
+    
+    const itemFreeDeliveryLists = this.state.Itemcard.slice(0,number).filter( x => {
+      return x.Delivery.DeliveryText === "무료배송"
+    });
+    this.setState({
+      Itemcard : itemFreeDeliveryLists,
+      ItemcardBasic : this.state.Itemcard
+    });
+  }
+  
+  _sortfreeDelivery2 = () => {
+    this.setState({ 
+      Itemcard : this.state.ItemcardBasic
+    });
+	}
+
     render() {
       const {addFavorite} = this.props
       console.log(this.state.Itemcard) //아이템카드 데이터 정렬
-      console.log(this.state.Favorite)
+      console.log(this.state.ItemcardBasic)
         return (
             <div id="content" className={this.state.viewtype[0] ? "state--content_view_type__gallery" : "state--content_view_type__list"}>
               <div className="section--content_body_container">
@@ -164,7 +204,7 @@ class Listpage extends Component {
                     </div>
                   </div>
                 </div>
-                <Filter filterToggle={this.state.filterToggle} filterOnChange={this.filterToggle} viewtypeState={this.state.viewtype} viewtypeChange={this._viewTypeChange} />
+                <Filter filterToggle={this.state.filterToggle} filterOnChange={this.filterToggle} viewtypeState={this.state.viewtype} viewtypeChange={this._viewTypeChange} filterDelivery={this.state.filterDelivery} filterDeliveryControl={this.filterDeliveryControl} />
               </div>
             </div>
         );
