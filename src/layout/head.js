@@ -18,7 +18,6 @@ import React, { Component, Fragment } from 'react';
       <link rel="dns-prefetch" href="//script.auction.co.kr" />
       <link rel="dns-prefetch" href="//image.auction.co.kr" />
       {/* dns-prefetch를 이용하여 도메인 설정 후 속도를 좀 더 빠르게 해주는 기능 */}
-      <link rel="shortcut icon" href="http://pics.iacstatic.co.kr/common/static/favicon_2011.ico" />
       <link rel="stylesheet" href="//script.auction.co.kr/mobile/style/css/common_frame.css" />
       <link rel="stylesheet" href="//script.auction.co.kr/build/mobile/css/snowwhite/app.css" />
       {/* 검색창에 의한 메타티그 최신화 필요 */}
