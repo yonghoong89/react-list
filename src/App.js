@@ -12,21 +12,21 @@ class App extends Component {
     cartNumber: "0",
   };
 
-  addFavorite = (keyValue) =>{
-    console.log(keyValue)
+  // addFavorite = (keyValue) =>{
+  //   console.log(keyValue)
 
-    if(this.state.Favorite.some(x => x === keyValue)){
-      alert('관심상품 제거')
-      this.setState({
-        Favorite: this.state.Favorite.splice(keyValue)
-      })
-    }else{
-      alert('관심상품 추가')
-      this.setState({
-        Favorite: this.state.Favorite.concat(keyValue)
-      })
-    }
-  }
+  //   if(this.state.Favorite.some(x => x === keyValue)){
+  //     alert('관심상품 제거')
+  //     this.setState({
+  //       Favorite: this.state.Favorite.splice(keyValue)
+  //     })
+  //   }else{
+  //     alert('관심상품 추가')
+  //     this.setState({
+  //       Favorite: this.state.Favorite.concat(keyValue)
+  //     })
+  //   }
+  // }
 
 
   render() {
@@ -35,7 +35,7 @@ class App extends Component {
     return (
       <Router>
         <Route path="/" render={ props => <Header cartNumber={this.state.Favorite.length} /> }/>
-        <Route exact path="/lp" render={ props => <Listpage addFavorite={this.addFavorite} /> }/>
+        <Route exact path="/lp" render={ props => <Listpage /> }/>
         <Route path="/cart" render={ props => <Cart Favorite={this.state.Favorite} /> }/>
         <Route path="/" component={Footer} />
       </Router>

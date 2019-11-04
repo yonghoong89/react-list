@@ -17,7 +17,8 @@ class Listpage extends Component {
     renderList: [true,false,false],//정렬순
     Itemcard: [],//아이템카드 리스트
     ItemcardBasic:[],
-    filterDelivery : false
+    filterDelivery : false,
+    test1 : [{rangking:1, num1 : '1', num2 : '2',num3 : '3', num4 : '4'},{rangking:2,num1 : '1', num2 : '2',num3 : '3', num4 : '4'}]
   };
 
   componentDidMount(){
@@ -44,7 +45,7 @@ class Listpage extends Component {
       ImageURL={Itemcard.ImageURL}
       BrandName={Itemcard.BrandName}
       GoodsName={Itemcard.GoodsName}
-      SalePrice={Itemcard.SalePrice}
+      SellPrice={Itemcard.SellPrice}
       DeliveryText={Itemcard.Delivery.DeliveryText}
       DeliveryInfo={Itemcard.Delivery.DeliveryInfo}
       BuyCount={Itemcard.BuyCount}
@@ -180,10 +181,29 @@ class Listpage extends Component {
     this.setState({ 
       Itemcard : this.state.ItemcardBasic
     });
-	}
+  }
+
+  addFavorite = (ranking) => {
+    const number = this.state.Itemcard.length;
+    //console.log(.IsFavoriteSeller)
+    //let cahngeFavorite = this.state.Itemcard.slice(0,number)
+    //let cahngeFavorite = this.state.test1
+    
+    //cahngeFavorite[ranking-1].IsFavoriteSeller = cahngeFavorite[ranking-1].IsFavoriteSeller ? false : true;
+
+
+    // console.log(ranking)
+    // console.log(cahngeFavorite)191
+
+    // this.setState({ 
+    //   test1 : cahngeFavorite
+    // });
+  
+  }
+  
 
     render() {
-      const {addFavorite} = this.props
+      const addFavorite = this.addFavorite
       console.log(this.state.Itemcard) //아이템카드 데이터 정렬
       console.log(this.state.ItemcardBasic)
         return (

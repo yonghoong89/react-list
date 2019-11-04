@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 
 
-const Itemlist =({GoodsCode, ImageURL, BrandName, GoodsName, SalePrice, DeliveryText, DeliveryInfo, BuyCount, addCart, IsFavoriteSeller, ranking, addFavorite}) =>{
+const Itemlist =({GoodsCode, ImageURL, BrandName, GoodsName, SellPrice, DeliveryText, DeliveryInfo, BuyCount, addCart, IsFavoriteSeller, ranking, addFavorite}) =>{
     console.log(IsFavoriteSeller)
     return(
 
@@ -22,7 +22,7 @@ const Itemlist =({GoodsCode, ImageURL, BrandName, GoodsName, SalePrice, Delivery
                                         </span>
                                         <span className="area--itemcard_price">
                                             <span className="price_seller">
-                                                <strong className="text--price_seller">{SalePrice}</strong><span className="text--unit">원</span>
+                                                <strong className="text--price_seller">{SellPrice}</strong><span className="text--unit">원</span>
                                             </span>
                                         </span>
                                         <span className="section--itemcard_info_add">
@@ -37,7 +37,7 @@ const Itemlist =({GoodsCode, ImageURL, BrandName, GoodsName, SalePrice, Delivery
                                     </span>
                                 </a>
                                 <button className={IsFavoriteSeller ? "button--favorite on" : "button--favorite"} onClick={() => addFavorite(ranking)}><span className="icon--favorite"><span className="ir">관심상품 등록하기</span></span></button>                                                                                                                                                                                                            
-                            </div>                                       
+                            </div>
                         </div>
                     </div>
             </div>  
