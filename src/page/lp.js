@@ -184,24 +184,16 @@ class Listpage extends Component {
   }
 
   addFavorite = (ranking) => {
-    const number = this.state.Itemcard.length;
-    //console.log(.IsFavoriteSeller)
-    //let cahngeFavorite = this.state.Itemcard.slice(0,number)
-    //let cahngeFavorite = this.state.test1
+    const cahngeFavorite = this.state.Itemcard;
+    const index = this.state.Itemcard.findIndex(todo => todo.ranking === ranking);
     
-    //cahngeFavorite[ranking-1].IsFavoriteSeller = cahngeFavorite[ranking-1].IsFavoriteSeller ? false : true;
-
-
-    // console.log(ranking)
-    // console.log(cahngeFavorite)191
-
-    // this.setState({ 
-    //   test1 : cahngeFavorite
-    // });
+    cahngeFavorite[index].IsFavoriteSeller = cahngeFavorite[index].IsFavoriteSeller ? false : true;
+    
+    this.setState({ 
+      Itemcard : cahngeFavorite
+    });
   
   }
-  
-
     render() {
       const addFavorite = this.addFavorite
       console.log(this.state.Itemcard) //아이템카드 데이터 정렬
