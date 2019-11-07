@@ -17,6 +17,7 @@ class Listpage extends Component {
     renderList: [true,false,false],//정렬순
     Itemcard: [],//아이템카드 리스트
     ItemcardBasic:[],
+    filterfavor : false,
     filterDelivery : false,
     test1 : [{rangking:1, num1 : '1', num2 : '2',num3 : '3', num4 : '4'},{rangking:2,num1 : '1', num2 : '2',num3 : '3', num4 : '4'}]
   };
@@ -176,8 +177,39 @@ class Listpage extends Component {
       ItemcardBasic : this.state.Itemcard
     });
   }
-  
+
   _sortfreeDelivery2 = () => {
+    this.setState({ 
+      Itemcard : this.state.ItemcardBasic
+    });
+  }
+
+  filterFavorControl = () =>{
+    const toggle =  (this.state.filterfavor) ? false : true;
+    this.setState({ 
+      filterfavor: toggle
+    });
+
+    if(!this.state.filterfavor){
+      this._sortfreeFavor()
+    }else{
+      this._sortfreeFavor2()
+    }
+  }
+
+  //관심상품
+  _sortfreeFavor = () => {
+    const number = this.state.Itemcard.length;
+    
+    const itemFreeFavorLists = this.state.Itemcard.slice(0,number).filter( x => {
+      return x.IsFavoriteSeller === true
+    });
+    this.setState({
+      Itemcard : itemFreeFavorLists
+    });
+  }
+
+  _sortfreeFavor2 = () => {
     this.setState({ 
       Itemcard : this.state.ItemcardBasic
     });
@@ -198,6 +230,7 @@ class Listpage extends Component {
       const addFavorite = this.addFavorite
       console.log(this.state.Itemcard) //아이템카드 데이터 정렬
       console.log(this.state.ItemcardBasic)
+
         return (
             <div id="content" className={this.state.viewtype[0] ? "state--content_view_type__gallery" : "state--content_view_type__list"}>
               <div className="section--content_body_container">
@@ -216,7 +249,7 @@ class Listpage extends Component {
                     </div>
                   </div>
                 </div>
-                <Filter filterToggle={this.state.filterToggle} filterOnChange={this.filterToggle} viewtypeState={this.state.viewtype} viewtypeChange={this._viewTypeChange} filterDelivery={this.state.filterDelivery} filterDeliveryControl={this.filterDeliveryControl} />
+                <Filter filterToggle={this.state.filterToggle} filterOnChange={this.filterToggle} viewtypeState={this.state.viewtype} viewtypeChange={this._viewTypeChange} filterDeliveryControl={this.filterDeliveryControl} filterFavorControl={this.filterFavorControl} />
               </div>
             </div>
         );

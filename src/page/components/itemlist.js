@@ -6,7 +6,7 @@ const Itemlist =({GoodsCode, ImageURL, BrandName, GoodsName, SellPrice, Delivery
     console.log(IsFavoriteSeller)
     return(
 
-        <div className="component component--item_card type--general" key={ranking}>
+        <div className="component component--item_card type--general">
             <div className="itemcard">
                 <div className="section--itemcard_box">
                         <div className="section--itemcard">
