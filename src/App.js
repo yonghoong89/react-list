@@ -7,13 +7,13 @@ import Listpage from './page/lp'; //lp페이지
 class App extends Component {
   state = {
     Favorite:[],
-    cartNumber: "0",
+    cartNumber: "0"
   };
 
   render() {
     return (
      <div>
-        <Header/>
+        <Header cartNumber={this.state.cartNumber}/>
         <Listpage />
         <Footer />
       </div> 

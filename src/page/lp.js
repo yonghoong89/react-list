@@ -18,8 +18,7 @@ class Listpage extends Component {
     Itemcard: [],//아이템카드 리스트
     ItemcardBasic:[],
     filterfavor : false,
-    filterDelivery : false,
-    test1 : [{rangking:1, num1 : '1', num2 : '2',num3 : '3', num4 : '4'},{rangking:2,num1 : '1', num2 : '2',num3 : '3', num4 : '4'}]
+    filterDelivery : false
   };
 
   componentDidMount(){
@@ -230,7 +229,6 @@ class Listpage extends Component {
       const addFavorite = this.addFavorite
       console.log(this.state.Itemcard) //아이템카드 데이터 정렬
       console.log(this.state.ItemcardBasic)
-
         return (
             <div id="content" className={this.state.viewtype[0] ? "state--content_view_type__gallery" : "state--content_view_type__list"}>
               <div className="section--content_body_container">

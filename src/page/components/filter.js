@@ -31,7 +31,7 @@ const Filter =({filterToggle, filterOnChange, viewtypeState, viewtypeChange, fil
                     </div>
                 </div>
                 <div className="section--filter_close">
-                    <button type="button" className="button--close_filter_container"><span className="button--close_text" onClick={filterOnChange}>닫기</span></button>
+                    <button type="button" className="button--close_filter_container" onClick={filterOnChange}><span className="button--close_text">닫기</span></button>
                 </div>
             </div>
         </div>
