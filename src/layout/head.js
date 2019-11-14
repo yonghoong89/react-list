@@ -3,7 +3,7 @@ import React, { Component, Fragment } from 'react';
   class Head extends Component {
 
   state = {
-    keyword : "청바지"
+    keyword : "티셔츠"
   }
 
 
@@ -22,13 +22,13 @@ import React, { Component, Fragment } from 'react';
       <link rel="stylesheet" href="//script.auction.co.kr/build/mobile/css/snowwhite/app.css" />
       {/* 검색창에 의한 메타티그 최신화 필요 */}
       <title>옥션 - {this.state.keyword} : 모바일 쇼핑은 옥션</title>
-      <meta name="description" content="옥션 내 청바지 상품입니다." />
-      <meta name="keywords" content="청바지" />
+      <meta name="description" content="옥션 내 티셔츠 상품입니다." />
+      <meta name="keywords" content="티셔츠" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="옥션 - 청바지 : 모바일 쇼핑은 옥션" />
-      <meta property="og:description" content="옥션 내 청바지 상품입니다." />
+      <meta property="og:title" content="옥션 - 티셔츠 : 모바일 쇼핑은 옥션" />
+      <meta property="og:description" content="옥션 내 티셔츠 상품입니다." />
       <meta property="og:image" content="//pics.auction.co.kr/pc/common/sns/facebook/default.png" />
-      <meta property="og:image:alt" content="옥션 청바지 상품" />
+      <meta property="og:image:alt" content="옥션 티셔츠 상품" />
       </Fragment>
     );
   }
