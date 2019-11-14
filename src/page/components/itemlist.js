@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 
 const Itemlist =({GoodsCode, ImageURL, BrandName, GoodsName, SellPrice, DeliveryText, DeliveryInfo, BuyCount, addCart, IsFavoriteSeller, ranking, addFavorite}) =>{
-    console.log(IsFavoriteSeller)
+    //console.log(IsFavoriteSeller)
     return(
 
         <div className="component component--item_card type--general">
@@ -36,7 +36,8 @@ const Itemlist =({GoodsCode, ImageURL, BrandName, GoodsName, SellPrice, Delivery
                                         </span>
                                     </span>
                                 </a>
-                                <button className={IsFavoriteSeller ? "button--favorite on" : "button--favorite"} onClick={() => addFavorite(ranking)}><span className="icon--favorite"><span className="ir">관심상품 등록하기</span></span></button>                                                                                                                                                                                                            
+                                <button className={IsFavoriteSeller ? "button--favorite on" : "button--favorite"} onClick={() => addFavorite(ranking)}><span className="icon--favorite"><span className="ir">관심상품 등록하기</span></span></button>
+                                <button className="button--cart element-info-cart"><span className="icon--cart"><span className="ir">장바구니담기</span></span></button>
                             </div>
                         </div>
                     </div>

@@ -227,8 +227,8 @@ class Listpage extends Component {
   }
     render() {
       const addFavorite = this.addFavorite
-      console.log(this.state.Itemcard) //아이템카드 데이터 정렬
-      console.log(this.state.ItemcardBasic)
+      // console.log(this.state.Itemcard) //아이템카드 데이터 정렬
+      // console.log(this.state.ItemcardBasic)
         return (
             <div id="content" className={this.state.viewtype[0] ? "state--content_view_type__gallery" : "state--content_view_type__list"}>
               <div className="section--content_body_container">
